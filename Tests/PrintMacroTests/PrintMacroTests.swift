@@ -16,7 +16,7 @@ let testMacros: [String: Macro.Type] = [
 @MainActor
 final class PrintMacroTests: XCTestCase {
     func testPrintMacroWithSingleVariable() throws {
-        #if canImport(PrintMacroMacros)
+#if canImport(PrintMacroMacros)
         assertMacroExpansion(
             """
             #print(foo)
@@ -32,13 +32,13 @@ final class PrintMacroTests: XCTestCase {
             """,
             macros: testMacros
         )
-        #else
+#else
         throw XCTSkip("macros are only supported when running tests for the host platform")
-        #endif
+#endif
     }
 
     func testPrintMacroWithMultipleVariables() throws {
-        #if canImport(PrintMacroMacros)
+#if canImport(PrintMacroMacros)
         assertMacroExpansion(
             """
             #print(foo, bar)
@@ -56,13 +56,13 @@ final class PrintMacroTests: XCTestCase {
             """,
             macros: testMacros
         )
-        #else
+#else
         throw XCTSkip("macros are only supported when running tests for the host platform")
-        #endif
+#endif
     }
 
     func testPrintMacroWithExpressions() throws {
-        #if canImport(PrintMacroMacros)
+#if canImport(PrintMacroMacros)
         assertMacroExpansion(
             """
             #print(a + b, "hello world")
@@ -80,13 +80,13 @@ final class PrintMacroTests: XCTestCase {
             """,
             macros: testMacros
         )
-        #else
+#else
         throw XCTSkip("macros are only supported when running tests for the host platform")
-        #endif
+#endif
     }
-    
+
     func testPrintMacroWithComplexExpression() throws {
-        #if canImport(PrintMacroMacros)
+#if canImport(PrintMacroMacros)
         assertMacroExpansion(
             """
             #print(a + b)
@@ -102,13 +102,13 @@ final class PrintMacroTests: XCTestCase {
             """,
             macros: testMacros
         )
-        #else
+#else
         throw XCTSkip("macros are only supported when running tests for the host platform")
-        #endif
+#endif
     }
 
     func testPrintMacroWithFunctionCall() throws {
-        #if canImport(PrintMacroMacros)
+#if canImport(PrintMacroMacros)
         assertMacroExpansion(
             """
             #print(foo().description + "456")
@@ -124,9 +124,9 @@ final class PrintMacroTests: XCTestCase {
             """,
             macros: testMacros
         )
-        #else
+#else
         throw XCTSkip("macros are only supported when running tests for the host platform")
-        #endif
+#endif
     }
 
     func testPrintMacroWithMultipleFunctionCalls() throws {
