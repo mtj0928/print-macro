@@ -130,7 +130,7 @@ final class PrintMacroTests: XCTestCase {
     }
 
     func testPrintMacroWithMultipleFunctionCalls() throws {
-#if canImport(print_macroMacros)
+#if canImport(PrintMacroMacros)
         assertMacroExpansion(
             """
             #print(foo().bar().baz())
